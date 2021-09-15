@@ -1,4 +1,4 @@
-const { TwitterClient } = require('twitter-api-client');
+const { TwitterClient } = require("twitter-api-client");
 
 const tweet = async (status) => {
   const twitterClient = new TwitterClient({
@@ -13,8 +13,7 @@ const tweet = async (status) => {
 
 (async () => {
   try {
-    const myTweet =
-      `#Checkout this #Django #Python #projects in #Django #HTML #CSS #Python #Repo on @github https://bit.ly/2XkOsia #Follow: @NiKs290192 on @Github, @Twitter, @Instagram for more updates :)`;
+    const myTweet = `#Checkout this #Django #Python #projects in #Django #HTML #CSS #Python #Repo on @github https://bit.ly/2XkOsia #Follow: @NiKs290192 on @Github, @Twitter, @Instagram for more updates :)`;
     await tweet(myTweet);
   } catch (err) {
     console.error(err);

@@ -1,0 +1,2 @@
+# Django
+Python is one of the worlds top programming languages, Django is the top framework for python, I think that says it all. While I can see the appeal to a more lightweight framework such as flask I think Django will be the right choice for you in most every case. Great for beginners to have structure and plenty of modules/packages to work with and highly customizable for more advanced developers. I think with companies such as Instagram, Pinterest, Spotify and Udemy using Django, that should be plenty enough proof of its capabilities and credibility.

@@ -1,8 +1,10 @@
+import logging
 
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Project
 from .forms import ProjectForm
+
 
 # Create your views here.
 
@@ -12,38 +14,36 @@ def projects(request):
     context = {'projects': projects}
     return render(request, 'projects/projects.html', context)
 
+
 def project(request, pk):
     projectObj = Project.objects.get(id=pk)
     return render(request, 'projects/single-project.html', {'projectObj': projectObj})
 
 
 def createProject(request):
-    form  = ProjectForm()
+    form = ProjectForm()
 
     if request.method == 'POST':
         print(request.POST)
-        form = ProjectForm(request.POST)
+        form = ProjectForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('projects')
-
 
     context = {'form': form}
     return render(request, "projects/project_form.html", context)
 
 
-
 def updateProject(request, pk):
     project = Project.objects.get(id=pk)
-    form  = ProjectForm(instance=project)
+    form = ProjectForm(instance=project)
 
     if request.method == 'POST':
         print(request.POST)
-        form = ProjectForm(request.POST, instance=project)
+        form = ProjectForm(request.POST, request.FILES, instance=project)
         if form.is_valid():
             form.save()
             return redirect('projects')
-
 
     context = {'form': form}
     return render(request, "projects/project_form.html", context)
